@@ -2,7 +2,7 @@ import pandas
 from datetime import datetime, timedelta
 
 import sys
-sys.path.append(r'E:\DocumentosHDD\GitHub\TFG-Seleccion_de_Vuelos\src\TFG_Seleccion_de_Vuelos')
+sys.path.append(r'E:\DocumentosHDD\GitHub\df_utilities\src')
 
 import df_utilities.constants as const
 

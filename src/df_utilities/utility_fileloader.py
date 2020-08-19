@@ -3,7 +3,7 @@ from chardet.universaldetector import UniversalDetector
 from datetime import datetime
 
 import sys
-sys.path.append(r'E:\DocumentosHDD\GitHub\TFG-Seleccion_de_Vuelos\src\TFG_Seleccion_de_Vuelos')
+sys.path.append(r'E:\DocumentosHDD\GitHub\df_utilities\src')
 
 import df_utilities.constants as const
 import df_utilities.utility_functions as uf

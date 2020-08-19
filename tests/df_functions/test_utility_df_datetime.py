@@ -6,7 +6,7 @@ from datetime import datetime
 sys.path.insert(0, 'src')
 sys.path.insert(0, 'tests')
 
-from TFG_Seleccion_de_Vuelos.df_utilities import df_datetime, constants as const
+from df_utilities import df_datetime, constants as const
 from fixtures import df, json_data
 
 def test_conv_to_datetime(json_data):

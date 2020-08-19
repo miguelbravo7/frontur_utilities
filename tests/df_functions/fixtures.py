@@ -4,7 +4,7 @@ import sys
 
 sys.path.insert(0, 'src')
 
-from TFG_Seleccion_de_Vuelos.df_utilities import constants as const
+from df_utilities import constants as const
 
 column_name = 'col1'
 reference_column_name = 'col2'

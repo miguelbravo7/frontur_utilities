@@ -5,7 +5,7 @@ import sys
 sys.path.insert(0, 'src')
 sys.path.insert(0, 'tests')
 
-from TFG_Seleccion_de_Vuelos.df_utilities import utility_df, constants as const
+from df_utilities import utility_df, constants as const
 from fixtures import df, json_data
 
 
