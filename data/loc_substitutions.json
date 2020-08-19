@@ -1,0 +1,25 @@
+[
+    {
+        "column_name": "Destino",
+        "reference_column_name": "Codigo",
+        "reference_column_values": [
+            "ACE",
+            "LPA",
+            "SPC",
+            "TFN",
+            "TFS",
+            "VDE",
+            "GMZ",
+            "FUE"
+        ],
+        "replace_value": "CANARIAS"
+    },
+    {
+        "column_name": "Pais",
+        "reference_column_name": "Codigo",
+        "reference_column_values": [
+            "___"
+        ],
+        "replace_value": "SEGUNDO"
+    }
+]

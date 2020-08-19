@@ -1,0 +1,2 @@
+cat .\Include\files\aviones.txt | sed -e "s/\s\+/,/2" -e "s/\s\+/,/2" -e "s/^ \+//" > .\Include\files\aviones.csv
+cat .\Include\files\vuelos.txt | sed -e "s/\s\+/,/g" -e "s/^,//" > .\Include\files\vuelos.csv

@@ -1,0 +1,39 @@
+ IATAcode   asientos   modelo
+  319   141    Airbus A319
+  320   180    Airbus A320-100/200
+  321   200    Airbus A321-100/200
+  32A   220    Airbus ??
+  32B   220    Airbus ??
+  32Q   220    Airbus ??
+  32S   220    Airbus A318/319/320/321
+  332   288    Airbus A330-200
+  333   295    Airbus A330-300
+  343   295    Airbus A340-300
+  717   106    Boeing 717 ??
+  735   106    Boeing 737-500 ??
+  73C   189    Boeing 737 ??
+  73G   189    Boeing 737-700 pax
+  73H   189    Boeing 737-800 pax
+  73J   189    Boeing 737 ??
+  73W   189    Boeing 737-700 pax
+  738   189    Boeing 737-800 pax
+  7S8   189    Boeing ??
+  737   189    Boeing 737
+  734   189    Boeing 737-400 pax
+  752   239    Boeing 757-200 pax
+  75T   239    Boeing 757 ??
+  75W   239    Boeing 757 ??
+  767   278    Boeing 767
+  76W   278    Boeing 767 ??
+  788   200    Boeing ??
+  7M8   200    Boeing ??
+  789   200    Boeing 787-9 pax
+  AT7    72    Aerospatiale/Alenia ATR72
+  ATR    72    Aerospatiale/Alenia ATR42 / ATR72 
+  BE4    10    Beechcraft ??
+  CRK    50    Canadair Regional Jet
+  DH4    68    De Havilland Canada DHC-8-400 Dash 8Q
+  E95   122    Embraer E-195
+  EP3   100    Embraer E-190
+  H28   100    British Aerospace (Hawker Siddeley) ??
+  M83   172    McDonnell Douglas MD83

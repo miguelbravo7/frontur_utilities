@@ -1,0 +1,8 @@
+ hasta-num-pasajeros   min-num-cuestionarios
+        60                 20
+      1000                 80
+     10000                200
+     25000                400
+     40000                500
+     60000                600
+1000000000                700
