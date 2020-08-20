@@ -3,6 +3,7 @@ import df_utilities.utility_fileloader as df_fileloader
 import df_utilities.constants as const
 import df_utilities.extract_methods as em
 
+
 @click.group()
 def cli():
     """Method that can be called my other modules to use the commands on this file"""
@@ -17,9 +18,9 @@ def cli():
 @click.option('-s', '--substitutions', default='.', type=click.Path(exists=True), help='Optional json file with value conversions.')
 def command(infile, days, airport, substitutions, outfile):
     r"""
-·______   ______     ______     __   __     ______   __  __     ______
-/\  ___\ /\  == \   /\  __ \   /\ "-.\ \   /\__  _\ /\ \/\ \   /\  == \
-\ \  __\ \ \  __<   \ \ \/\ \  \ \ \-.  \  \/_/\ \/ \ \ \_\ \  \ \  __<
+·______   ______     ______     __   __     ______   __  __     ______   
+/\  ___\ /\  == \   /\  __ \   /\ "-.\ \   /\__  _\ /\ \/\ \   /\  == \  
+\ \  __\ \ \  __<   \ \ \/\ \  \ \ \-.  \  \/_/\ \/ \ \ \_\ \  \ \  __<  
 ·\ \_\    \ \_\ \_\  \ \_____\  \ \_\\"\_\    \ \_\  \ \_____\  \ \_\ \_\
 ··\/_/     \/_/ /_/   \/_____/   \/_/ \/_/     \/_/   \/_____/   \/_/ /_/
 

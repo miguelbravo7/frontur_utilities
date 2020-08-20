@@ -57,7 +57,7 @@ def next_date(date, day):
     -------
     datetime object
     """
-    return date + timedelta(days= (day - date.weekday()) % 7)
+    return date + timedelta(days=(day - date.weekday()) % 7)
 
 
 def gen_dates(dt_first, dt_last, available_work_days):
@@ -93,8 +93,8 @@ def gen_dates(dt_first, dt_last, available_work_days):
 
 def expand_date_intervals(
         df,
-        week_days=const.DF_WEEKDAY_COL_NAME, 
-        start_row=const.DF_OPERATION_START_COL_NAME, 
+        week_days=const.DF_WEEKDAY_COL_NAME,
+        start_row=const.DF_OPERATION_START_COL_NAME,
         end_row=const.DF_OPERATION_END_COL_NAME,
         day_name=const.DF_DAY_COL_NAME
         ):

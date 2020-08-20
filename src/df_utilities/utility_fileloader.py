@@ -67,7 +67,7 @@ def dump_agenda(
     constants
     """
     extention = file_path.split('.')[-1]
-    
+
     if extention not in const.SUPPORTED_EXTENSIONS:
         raise AttributeError(f'The file extention {extention} of file {file_path} is not supported.')
 
