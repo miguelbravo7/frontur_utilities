@@ -1,6 +1,5 @@
 import pandas
 import pytest
-import sys
 from df_utilities import constants as const
 
 column_name = 'col1'

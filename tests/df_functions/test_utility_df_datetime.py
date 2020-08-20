@@ -1,6 +1,5 @@
 import sys
-import pandas 
-import pytest
+import pandas
 from datetime import datetime
 
 sys.path.insert(0, 'src')
@@ -9,7 +8,7 @@ sys.path.insert(0, 'tests')
 from df_utilities import df_datetime, constants as const
 from fixtures import df, json_data
 
-def test_conv_to_datetime(json_data):
+def test_conv_to_datetime():
     expected = [
         datetime.strptime("04/02/2019", const.DF_DATAFRAME_DAY_FORMAT),
         datetime.strptime("05/02/2019", const.DF_DATAFRAME_DAY_FORMAT)
@@ -87,7 +86,7 @@ def test_gen_dates():
     assert expected == actual
 
 def test_expand_date_intervals():
-    df = pandas.DataFrame({
+    data_frame = pandas.DataFrame({
         const.DF_WEEKDAY_COL_NAME: ['M'],
         const.DF_OPERATION_START_COL_NAME: [datetime.strptime("23/03/2020", const.DF_DATAFRAME_DAY_FORMAT)],
         const.DF_OPERATION_END_COL_NAME: [datetime.strptime("30/03/2020", const.DF_DATAFRAME_DAY_FORMAT)]
@@ -95,4 +94,4 @@ def test_expand_date_intervals():
 
     expected = [{const.DF_DAY_COL_NAME: datetime.strptime("24/03/2020", const.DF_DATAFRAME_DAY_FORMAT)}]
 
-    assert expected == df_datetime.expand_date_intervals(df.iloc[0])
+    assert expected == df_datetime.expand_date_intervals(data_frame.iloc[0])

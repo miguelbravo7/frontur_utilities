@@ -1,5 +1,4 @@
-import pandas 
-import pytest
+import pandas
 import sys
 
 sys.path.insert(0, 'src')
