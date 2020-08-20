@@ -1,10 +1,6 @@
-import pandas 
 from datetime import datetime, timedelta
-
-import sys
-sys.path.append(r'E:\DocumentosHDD\GitHub\df_utilities\src')
-
 import df_utilities.constants as const
+
 
 def conv_to_datetime(day_str_arr, day_format):
     """
@@ -13,23 +9,23 @@ def conv_to_datetime(day_str_arr, day_format):
 
     Parameters
     ----------
-    day_str_arr: list 
+    day_str_arr: list
         list that contain the strings with the date formatted
     day_format: string
         string that specifies the format of the day string
 
     Returns
     -------
-    list of datetime objects 
+    list of datetime objects
     """
     dates = []
     for day in day_str_arr:
         dates.append(datetime.strptime(day, day_format))
     dates.sort()
-    return dates 
+    return dates
 
-def parse_workdays(available_work_days,
-    dictionary=const.WEEKDAY):
+
+def parse_workdays(available_work_days, dictionary=const.WEEKDAY):
     """
     Parses a string to return an array of weekday numbers
 
@@ -47,6 +43,7 @@ def parse_workdays(available_work_days,
     work_days.sort()
     return work_days
 
+
 def next_date(date, day):
     """
     Gives the next datetime given date and the next chosen weekday
@@ -62,9 +59,10 @@ def next_date(date, day):
     """
     return date + timedelta(days= (day - date.weekday()) % 7)
 
+
 def gen_dates(dt_first, dt_last, available_work_days):
     """
-    Gives the set of dates given the interval of the two dates 
+    Gives the set of dates given the interval of the two dates
     and an array of available week day numbers
 
     Parameters
@@ -92,13 +90,14 @@ def gen_dates(dt_first, dt_last, available_work_days):
         dates.update(tmp_dates)
     return dates
 
+
 def expand_date_intervals(
-    df, 
-    week_days=const.DF_WEEKDAY_COL_NAME, 
-    start_row=const.DF_OPERATION_START_COL_NAME, 
-    end_row=const.DF_OPERATION_END_COL_NAME,
-    day_name=const.DF_DAY_COL_NAME
-    ):
+        df,
+        week_days=const.DF_WEEKDAY_COL_NAME, 
+        start_row=const.DF_OPERATION_START_COL_NAME, 
+        end_row=const.DF_OPERATION_END_COL_NAME,
+        day_name=const.DF_DAY_COL_NAME
+        ):
     """
     Given a dataframe row multiple instances of single dates are made
     using a date interval and available weekdays

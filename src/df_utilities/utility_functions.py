@@ -1,5 +1,6 @@
 import sys
 
+
 def flatten(list_of_lists):
     """
     Helper function to flat a list out of lists
@@ -17,6 +18,7 @@ def flatten(list_of_lists):
         for item in sublist:
             flat_list.append(item)
     return flat_list
+
 
 def path_modules():
     """

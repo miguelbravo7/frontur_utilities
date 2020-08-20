@@ -1,9 +1,6 @@
 import pandas
 import pytest
 import sys
-
-sys.path.insert(0, 'src')
-
 from df_utilities import constants as const
 
 column_name = 'col1'

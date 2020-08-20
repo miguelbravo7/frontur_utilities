@@ -1,8 +1,7 @@
 import df_utilities.utility_df_datetime as df_datetime
-import df_utilities.utility_df as df_utility
 import df_utilities.constants as const
-import json
 from bisect import bisect
+
 
 def replace_value(value,
                   trad_dict,
@@ -70,7 +69,6 @@ def select_rows(data_frame,
         if(format == ""):
             format = json_data[date_format]
         days = frozenset(df_datetime.conv_to_datetime(json_data[available_days], format))
-        
     return data_frame.loc[data_frame[json_data[column_name]].isin(days)]
 
 
@@ -98,10 +96,10 @@ def substitute_rows(data_frame,
     for substitution_map in json_data:
         data_frame[substitution_map[json_column_name]] = data_frame.apply(
             lambda row: replace_value(row,
-                                    substitution_map,
-                                    json_column_name=json_column_name,
-                                    json_reference_column_name=json_reference_column_name,
-                                    json_reference_column_values=json_reference_column_values,
-                                    json_replace_value=json_replace_value
+                                      substitution_map,
+                                      json_column_name=json_column_name,
+                                      json_reference_column_name=json_reference_column_name,
+                                      json_reference_column_values=json_reference_column_values,
+                                      json_replace_value=json_replace_value
                                     ),
             axis='columns')

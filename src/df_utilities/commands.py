@@ -1,12 +1,4 @@
 import click
-import pandas
-import json
-import re
-import datetime
-
-import sys
-sys.path.append(r'E:\DocumentosHDD\GitHub\df_utilities\src')
-
 import df_utilities.utility_fileloader as df_fileloader
 import df_utilities.constants as const
 import df_utilities.extract_methods as em
@@ -25,14 +17,15 @@ def cli():
 @click.option('-s', '--substitutions', default='.', type=click.Path(exists=True), help='Optional json file with value conversions.')
 def command(infile, days, airport, substitutions, outfile):
     r"""
-·______   ______     ______     __   __     ______   __  __     ______    
-/\  ___\ /\  == \   /\  __ \   /\ "-.\ \   /\__  _\ /\ \/\ \   /\  == \   
-\ \  __\ \ \  __<   \ \ \/\ \  \ \ \-.  \  \/_/\ \/ \ \ \_\ \  \ \  __<   
-·\ \_\    \ \_\ \_\  \ \_____\  \ \_\\"\_\    \ \_\  \ \_____\  \ \_\ \_\ 
-··\/_/     \/_/ /_/   \/_____/   \/_/ \/_/     \/_/   \/_____/   \/_/ /_/ 
+·______   ______     ______     __   __     ______   __  __     ______
+/\  ___\ /\  == \   /\  __ \   /\ "-.\ \   /\__  _\ /\ \/\ \   /\  == \
+\ \  __\ \ \  __<   \ \ \/\ \  \ \ \-.  \  \/_/\ \/ \ \ \_\ \  \ \  __<
+·\ \_\    \ \_\ \_\  \ \_____\  \ \_\\"\_\    \ \_\  \ \_____\  \ \_\ \_\
+··\/_/     \/_/ /_/   \/_____/   \/_/ \/_/     \/_/   \/_____/   \/_/ /_/
 
 
-Program that processes various information from files giving a dataframe with concrete information about flights.
+Program that processes various information from files
+giving a dataframe with concrete information about flights.
     """
     data_frame = df_fileloader.load_agenda(infile)
     data_frame = em.select_airport(data_frame, airport)
