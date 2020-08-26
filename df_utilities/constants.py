@@ -1,8 +1,8 @@
 import json
 from os import path
 
-# data = {}
-with open(path.dirname(path.realpath(__file__)) + '/../config.json', 'r') as f:
+data = {}
+with open('config.json', 'r') as f:
     data = json.load(f)
 
 locals().update(**data)
