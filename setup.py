@@ -22,7 +22,7 @@ setup(
 
     # Project uses reStructuredText, so ensure that the docutils get
     # installed or upgraded on the target machine
-    install_requires='docutils' + requirements,
+    install_requires=['docutils'] + requirements,
 
     keywords="TFG ULL ISTAC",
     url="http://example.com/HelloWorld/",   # project home page, if any
