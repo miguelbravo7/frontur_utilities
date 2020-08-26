@@ -16,11 +16,8 @@ setup(
     description="Trabajo de fin de grado",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    version="0.0.5",
-    packages=find_namespace_packages(
-        where="src"
-    ),
-    package_dir={"": "src"},
+    version="0.0.6",
+    packages=find_namespace_packages(),
     include_package_data=True,
 
     # Project uses reStructuredText, so ensure that the docutils get
