@@ -1,5 +1,4 @@
 import json
-from os import path
 
 data = {}
 with open('config.json', 'r') as f:
