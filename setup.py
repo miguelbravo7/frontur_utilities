@@ -10,8 +10,7 @@ with open("requirements.txt", 'r') as f:
 print(requirements)
 
 setup(
-    # metadata to display on PyPI
-    name="FronTur Utilities",
+    name="fronTur_utilities",
     author="Miguel Bravo Arvelo",
     author_email="alu0101031538@ull.edu.es",
     description="Trabajo de fin de grado",
@@ -26,7 +25,7 @@ setup(
 
     # Project uses reStructuredText, so ensure that the docutils get
     # installed or upgraded on the target machine
-    install_requires=requirements,
+    install_requires='docutils' + requirements,
 
     keywords="TFG ULL ISTAC",
     url="http://example.com/HelloWorld/",   # project home page, if any

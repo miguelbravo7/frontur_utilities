@@ -1,24 +1,19 @@
 import pandas
-import sys
-
-sys.path.insert(0, 'src')
-sys.path.insert(0, 'tests')
-
 from df_utilities import utility_df, constants as const
 from fixtures import df, json_data
 
 
 def test_replace_value(df, json_data):
     # Assertions use Dataframe instances of only one row
-    dict_arr = df.to_dict(orient='records') 
-    
+    dict_arr = df.to_dict(orient='records')
+
     # Check when the values should be substituted
     assert json_data[const.KW_REPL_VALUE] == utility_df.replace_value(dict_arr[0], json_data)
     assert json_data[const.KW_REPL_VALUE] == utility_df.replace_value(dict_arr[1], json_data)
 
     # Check when the values should not be substituted
     assert dict_arr[2][json_data[const.KW_COL_NAME]] == utility_df.replace_value(dict_arr[2], json_data)
-    
+
 
 def test_minimum_sample(json_data):
     # Left edge cases
@@ -50,8 +45,9 @@ def test_select_rows(df, json_data):
     expected_df[const.DF_DAY_COL_NAME] = pandas.to_datetime(expected_df[const.DF_DAY_COL_NAME], format=const.DF_DATAFRAME_DAY_FORMAT)
 
     actual_df = utility_df.select_rows(df, json_data)
-    
+
     pandas.testing.assert_frame_equal(actual_df, expected_df)
+
 
 def test_substitute_rows(df):
     assert True

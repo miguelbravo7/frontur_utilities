@@ -5,23 +5,20 @@ import df_utilities.constants as const
 import df_utilities.utility_functions as uf
 
 
-def load_agenda(file_path,
-                date_format=const.DF_DATAFRAME_DAY_FORMAT) -> pandas.DataFrame:
-    """
-    Loads a pandas DataFrame object given a file
-    and checking if its extension is supported
+def load_agenda(file_path: str,
+                date_format: str = const.DF_DATAFRAME_DAY_FORMAT) -> pandas.DataFrame:
+    """Loads a pandas Dataframe given a file 
+    and checking if the extension is supported
 
-    Parameters
-    ----------
-    file_path: string
+    Args:
+        file_path (str): [description]
+        date_format (str, optional): [description]. Defaults to const.DF_DATAFRAME_DAY_FORMAT.
 
-    Returns
-    -------
-    pandas DataFrame object
+    Raises:
+        AttributeError: [description]
 
-    See also
-    --------
-    constants
+    Returns:
+        pandas.DataFrame: [description]
     """
     extention = file_path.split('.')[-1]
 
@@ -45,26 +42,23 @@ def load_agenda(file_path,
 
 
 def dump_agenda(
-                file_path,
-                data_frame,
-                date_format=const.DF_DATAFRAME_DAY_FORMAT
-                ):
-    """
-    Loads a pandas DataFrame object given a file
+                file_path: str,
+                data_frame: pandas.DataFrame,
+                date_format: str = const.DF_DATAFRAME_DAY_FORMAT
+                ) -> pandas.DataFrame:
+    """Loads a pandas DataFrame object given a file
     and checking if its extension is supported
 
-    Parameters
-    ----------
-    file_path: string
-    data_frame: pandas DataFrame
+    Args:
+        file_path (str): [description]
+        data_frame (pandas.DataFrame): [description]
+        date_format (str, optional): [description]. Defaults to const.DF_DATAFRAME_DAY_FORMAT.
 
-    Returns
-    -------
-    pandas DataFrame object
+    Raises:
+        AttributeError: [description]
 
-    See also
-    --------
-    constants
+    Returns:
+        pandas.DataFrame: [description]
     """
     extention = file_path.split('.')[-1]
 
@@ -79,19 +73,16 @@ def dump_agenda(
         data_frame.to_csv(file_path, date_format=date_format, index=False, encoding='utf-16')
 
 
-def guess_encoding(file_bytes):
-    """
-    Guesses the encoding as a string using the
+def guess_encoding(file_bytes: bin) -> str:
+    """Guesses the encoding as a string using the
     Universal Encoding Detector library incrementally
     calling its feed method repeatedly with each block of text
 
-    Parameters
-    ----------
-    file_bytes: bytes without any decoding
+    Args:
+        file_bytes (bin): bytes without any decoding
 
-    Returns
-    -------
-    string
+    Returns:
+        str: Type of the encoding
     """
     detector = UniversalDetector()
     for line in file_bytes.readlines():

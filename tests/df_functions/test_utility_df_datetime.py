@@ -1,12 +1,7 @@
-import sys
 import pandas
 from datetime import datetime
-
-sys.path.insert(0, 'src')
-sys.path.insert(0, 'tests')
-
 from df_utilities import df_datetime, constants as const
-from fixtures import df, json_data
+
 
 def test_conv_to_datetime():
     expected = [
@@ -16,6 +11,7 @@ def test_conv_to_datetime():
     actual = df_datetime.conv_to_datetime(["04/02/2019", "05/02/2019"], const.DF_DATAFRAME_DAY_FORMAT)
 
     assert expected == actual
+
 
 def test_parse_workdays():
     assert [0] == df_datetime.parse_workdays('L')
@@ -29,6 +25,7 @@ def test_parse_workdays():
     assert [2, 4] == df_datetime.parse_workdays('XV')
     assert [0, 3, 4, 5, 6] == df_datetime.parse_workdays('LSDJV')
 
+
 def test_next_date():
     monday = datetime.strptime("23/03/2020", const.DF_DATAFRAME_DAY_FORMAT)
 
@@ -39,6 +36,7 @@ def test_next_date():
     assert datetime.strptime("27/03/2020", const.DF_DATAFRAME_DAY_FORMAT) == df_datetime.next_date(monday, 4)
     assert datetime.strptime("28/03/2020", const.DF_DATAFRAME_DAY_FORMAT) == df_datetime.next_date(monday, 5)
     assert datetime.strptime("29/03/2020", const.DF_DATAFRAME_DAY_FORMAT) == df_datetime.next_date(monday, 6)
+
 
 def test_gen_dates():
     left_interval = datetime.strptime("23/03/2020", const.DF_DATAFRAME_DAY_FORMAT)
@@ -84,6 +82,7 @@ def test_gen_dates():
     actual = df_datetime.gen_dates(left_interval, right_interval, [6])
 
     assert expected == actual
+
 
 def test_expand_date_intervals():
     data_frame = pandas.DataFrame({

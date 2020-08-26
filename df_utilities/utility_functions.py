@@ -1,17 +1,14 @@
 import sys
 
 
-def flatten(list_of_lists):
-    """
-    Helper function to flat a list out of lists
+def flatten(list_of_lists: list) -> list:
+    """Helper function to flat a list out of lists
 
-    Parameters
-    ----------
-    list_of_lists: list
+    Args:
+        list_of_lists (list): [description]
 
-    Returns
-    -------
-    list
+    Returns:
+        list: [description]
     """
     flat_list = []
     for sublist in list_of_lists:
@@ -21,9 +18,7 @@ def flatten(list_of_lists):
 
 
 def path_modules():
-    """
-    Helper function that prints the modules of the current environment
-    """
+    """Helper function that prints the modules of the current environment"""
     import sys
     for file in sys.path:
         print(file)

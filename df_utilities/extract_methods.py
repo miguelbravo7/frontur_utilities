@@ -1,4 +1,4 @@
-from pandas import pandas
+import pandas
 import re
 import json
 import df_utilities.constants as const
@@ -8,7 +8,16 @@ import df_utilities.utility_functions as utility
 import df_utilities.utility_df as df_utility
 
 
-def select_airport(data_frame, airport):
+def select_airport(data_frame: pandas.DataFrame, airport: str) -> pandas.DataFrame:
+    """[summary]
+
+    Args:
+        data_frame (pandas.DataFrame): [description]
+        airport (str): [description]
+
+    Returns:
+        pandas.DataFrame: [description]
+    """
     data_frame = data_frame.loc[lambda frame: frame[const.DF_ORIGIN_COL_NAME] == airport]
     if data_frame.empty:
         utility.eprint(f'Selected airport "{airport}" is invalid or not found.')
@@ -16,12 +25,30 @@ def select_airport(data_frame, airport):
     return data_frame
 
 
-def substitute_values(df, file_path):
+def substitute_values(df: pandas.DataFrame, file_path: str) -> pandas.DataFrame:
+    """[summary]
+
+    Args:
+        df (pandas.DataFrame): [description]
+        file_path (str): [description]
+
+    Returns:
+        pandas.DataFrame: [description]
+    """
     with open(file_path) as jfile:
         df_utility.substitute_rows(df, json.load(jfile))
 
 
-def add_plane_data(data_frame, file_path):
+def add_plane_data(data_frame: pandas.DataFrame, file_path: str) -> pandas.DataFrame:
+    """[summary]
+
+    Args:
+        data_frame (pandas.DataFrame): [description]
+        file_path (str): [description]
+
+    Returns:
+        pandas.DataFrame: [description]
+    """
     planes = df_fileloader.load_agenda(file_path)
     data_frame[const.DF_PLANE_COL_NAME] = data_frame[const.DF_PLANE_COL_NAME].astype(str)
     planes[const.DF_PLANE_COL_NAME] = planes[const.DF_PLANE_COL_NAME].astype(str)
@@ -36,12 +63,29 @@ def add_plane_data(data_frame, file_path):
     return data_frame.query('_merge == "both"').drop(columns=['_merge'])
 
 
-def format_dates(data_frame):
+def format_dates(data_frame: pandas.DataFrame) -> pandas.DataFrame:
+    """Removes all whitespaces from the deafult date column
+
+    Args:
+        data_frame (pandas.DataFrame): source DataFrame
+
+    Returns:
+        pandas.DataFrame: Manipulated DataFrame
+    """
     data_frame[const.DF_WEEKDAY_COL_NAME] = data_frame.apply(lambda row: re.sub(r"\s+", '', row[const.DF_WEEKDAY_COL_NAME]), axis='columns')
     dict_lists = data_frame.apply(lambda row: df_datetime.expand_date_intervals(row), axis='columns')
-    return pandas.DataFrame(utility.flatten(dict_lists))
+    return pandas.pandas.DataFrame(utility.flatten(dict_lists))
 
 
-def select_days(df, file_path):        
+def select_days(df: pandas.DataFrame, file_path: str) -> pandas.DataFrame:
+    """[summary]
+
+    Args:
+        df (pandas.DataFrame): [description]
+        file_path (str): [description]
+
+    Returns:
+        pandas.DataFrame: [description]
+    """
     with open(file_path) as jfile:
         return df_utility.select_rows(df, json.load(jfile))
