@@ -33,7 +33,7 @@ def command(infile: str, days: str, airport: str, substitutions: str, outfile: s
         days (str): Path to json file with correct parameters of the assigned interview days
         airport (str): Target airport string identifier code
         substitutions (str): Optional json file with value conversions
-        outfile (str): Output path with parsed FronTur flights 
+        outfile (str): Output path with parsed FronTur flights
     """
     data_frame = df_fileloader.load_agenda(infile)
     data_frame = em.select_airport(data_frame, airport)

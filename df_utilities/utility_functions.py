@@ -18,11 +18,14 @@ def flatten(list_of_lists: list) -> list:
 
 
 def path_modules():
-    """Helper function that prints the modules of the current environment"""
+    """Helper function that prints the modules of the current environment
+    """
     import sys
     for file in sys.path:
         print(file)
 
 
 def eprint(*args, **kwargs):
+    """Method that handles error messages
+    """
     print(*args, file=sys.stderr, **kwargs)

@@ -6,26 +6,27 @@ import df_utilities.utility_functions as uf
 
 
 def load_agenda(file_path: str,
-                date_format: str = const.DF_DATAFRAME_DAY_FORMAT) -> pandas.DataFrame:
-    """Loads a pandas Dataframe given a file 
-    and checking if the extension is supported
+        date_format: str = const.DF_DATAFRAME_DAY_FORMAT
+        ) -> pandas.DataFrame:
+    """Loads a pandas Dataframe given a file
+    checking if the extension is supported
 
     Args:
-        file_path (str): [description]
-        date_format (str, optional): [description]. Defaults to const.DF_DATAFRAME_DAY_FORMAT.
+        file_path (str): Source file path
+        date_format (str, optional): Format used on the dates. Defaults to const.DF_DATAFRAME_DAY_FORMAT.
 
     Raises:
-        AttributeError: [description]
+        AttributeError: If the extension isn't supported
 
     Returns:
-        pandas.DataFrame: [description]
+        pandas.DataFrame: Loaded DataFrame
     """
     extention = file_path.split('.')[-1]
 
     if extention not in const.SUPPORTED_EXTENSIONS:
         raise AttributeError(f'The file extention {extention} of file {file_path} is not supported.')
 
-    date_parser = lambda x: pandas.datetime.strptime(x, date_format)
+    def date_parser(x): pandas.datetime.strptime(x, date_format)
 
     data_frame = None
     if extention in const.SUPPORTED_EXCEL:
@@ -42,28 +43,25 @@ def load_agenda(file_path: str,
 
 
 def dump_agenda(
-                file_path: str,
-                data_frame: pandas.DataFrame,
-                date_format: str = const.DF_DATAFRAME_DAY_FORMAT
-                ) -> pandas.DataFrame:
+        file_path: str,
+        data_frame: pandas.DataFrame,
+        date_format: str = const.DF_DATAFRAME_DAY_FORMAT
+        ):
     """Loads a pandas DataFrame object given a file
     and checking if its extension is supported
 
     Args:
-        file_path (str): [description]
-        data_frame (pandas.DataFrame): [description]
-        date_format (str, optional): [description]. Defaults to const.DF_DATAFRAME_DAY_FORMAT.
+        file_path (str): Target file path
+        data_frame (pandas.DataFrame): Source DataFrame
+        date_format (str, optional): Format used on the dates. Defaults to const.DF_DATAFRAME_DAY_FORMAT.
 
     Raises:
-        AttributeError: [description]
-
-    Returns:
-        pandas.DataFrame: [description]
+        AttributeError: If the file extension is not supported
     """
     extention = file_path.split('.')[-1]
 
     if extention not in const.SUPPORTED_EXTENSIONS:
-        raise AttributeError(f'The file extention {extention} of file {file_path} is not supported.')
+        raise AttributeError(f'The file extension {extention} of file {file_path} is not supported.')
 
     data_frame = data_frame.applymap(lambda x: x.strftime(const.DF_DATAFRAME_DAY_FORMAT) if isinstance(x, datetime) else x)
 
@@ -73,13 +71,13 @@ def dump_agenda(
         data_frame.to_csv(file_path, date_format=date_format, index=False, encoding='utf-16')
 
 
-def guess_encoding(file_bytes: bin) -> str:
+def guess_encoding(file_bytes: bytes) -> str:
     """Guesses the encoding as a string using the
     Universal Encoding Detector library incrementally
     calling its feed method repeatedly with each block of text
 
     Args:
-        file_bytes (bin): bytes without any decoding
+        file_bytes (bytes): raw bytes
 
     Returns:
         str: Type of the encoding

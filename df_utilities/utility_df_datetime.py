@@ -5,7 +5,7 @@ import df_utilities.constants as const
 
 def conv_to_datetime(day_str_arr: list, day_format: str) -> list:
     """Given a string with a date and another with its format
-    converts the string to a datetime object
+    converts the string to ea datetime object
 
     Args:
         day_str_arr (list): List that contains the strings with the date formatted
@@ -28,8 +28,8 @@ def parse_workdays(
     """Parses a string to return an array of weekday numbers
 
     Args:
-        available_work_days (str): [description]
-        dictionary (dict, optional): [description]. Defaults to const.WEEKDAY.
+        available_work_days (str): A string of individual character workdays
+        dictionary (dict, optional): Map of aliases to the characters. Defaults to const.WEEKDAY.
 
     Returns:
         list: Integer list of the corresponding weekdays
@@ -45,11 +45,11 @@ def next_date(date: datetime, day: int) -> datetime:
     """Gives the next datetime given date and the next chosen weekday
 
     Args:
-        date (datetime): [description]
-        day (int): [description]
+        date (datetime): Start instance of time
+        day (int): Weekday number to look after the given date
 
     Returns:
-        datetime: [description]
+        datetime: Date found after the given start date
     """
     return date + timedelta(days=(day - date.weekday()) % 7)
 
@@ -63,12 +63,12 @@ def gen_dates(
     and an array of available week day numbers
 
     Args:
-        dt_first (datetime): [description]
-        dt_last (datetime): [description]
-        available_work_days (list): list of integers
+        dt_first (datetime): Start date of tje interval
+        dt_last (datetime): Last date of the interval
+        available_work_days (list): list of workday integers
 
     Returns:
-        datetime: set of datetimes
+        datetime: set of possible datetimes between the given dates
     """
     dates = set()
     while True:
@@ -97,11 +97,11 @@ def expand_date_intervals(
     using a date interval and available weekdays
 
     Args:
-        df (pandas.DataFrame): [description]
-        week_days (str, optional): [description]. Defaults to const.DF_WEEKDAY_COL_NAME.
-        start_row (str, optional): [description]. Defaults to const.DF_OPERATION_START_COL_NAME.
-        end_row (str, optional): [description]. Defaults to const.DF_OPERATION_END_COL_NAME.
-        day_name (str, optional): [description]. Defaults to const.DF_DAY_COL_NAME.
+        df (pandas.DataFrame): Source DataFrame
+        week_days (str, optional): Name of the column that contains the workday characters. Defaults to const.DF_WEEKDAY_COL_NAME.
+        start_row (str, optional): Name of the column that contains the start date of opertation. Defaults to const.DF_OPERATION_START_COL_NAME.
+        end_row (str, optional): Name of the column that contains the last date of opertation. Defaults to const.DF_OPERATION_END_COL_NAME.
+        day_name (str, optional): Name of the generated column after the process. Defaults to const.DF_DAY_COL_NAME.
 
     Returns:
         list: list of dictionaries
