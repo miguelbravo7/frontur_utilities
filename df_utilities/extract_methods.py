@@ -1,3 +1,7 @@
+"""Agregate methods that reflect the general use of
+the treatment of data on the aplication
+"""
+
 import pandas
 import re
 import json

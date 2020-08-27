@@ -1,3 +1,6 @@
+"""Utility to load and save dataframes easily
+"""
+
 import pandas
 from chardet.universaldetector import UniversalDetector
 from datetime import datetime

@@ -1,3 +1,6 @@
+"""Methods that deal with data manipulation and selection
+"""
+
 import df_utilities.utility_df_datetime as df_datetime
 import df_utilities.constants as const
 from bisect import bisect

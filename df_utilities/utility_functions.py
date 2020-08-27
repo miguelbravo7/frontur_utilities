@@ -1,3 +1,6 @@
+"""General purpose functions
+"""
+
 import sys
 
 

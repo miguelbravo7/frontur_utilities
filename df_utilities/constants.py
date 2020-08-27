@@ -1,3 +1,7 @@
+"""Loads the variables the default values that are going to be used
+by the package modules
+"""
+
 import json
 
 data = {}

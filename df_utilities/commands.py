@@ -1,3 +1,6 @@
+"""Collection of methods that are used as command line scripts
+"""
+
 import click
 import df_utilities.utility_fileloader as df_fileloader
 import df_utilities.constants as const

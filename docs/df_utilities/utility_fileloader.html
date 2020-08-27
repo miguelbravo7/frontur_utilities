@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.8.5" />
 <title>df_utilities.utility_fileloader API documentation</title>
-<meta name="description" content="" />
+<meta name="description" content="Utility to load and save dataframes easily" />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
 <link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css" crossorigin>
@@ -22,11 +22,15 @@
 <h1 class="title">Module <code>df_utilities.utility_fileloader</code></h1>
 </header>
 <section id="section-intro">
+<p>Utility to load and save dataframes easily</p>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">import pandas
+<pre><code class="python">&#34;&#34;&#34;Utility to load and save dataframes easily
+&#34;&#34;&#34;
+
+import pandas
 from chardet.universaldetector import UniversalDetector
 from datetime import datetime
 import df_utilities.constants as const
@@ -91,7 +95,7 @@ def dump_agenda(
     if extention not in const.SUPPORTED_EXTENSIONS:
         raise AttributeError(f&#39;The file extension {extention} of file {file_path} is not supported.&#39;)
 
-    data_frame = data_frame.applymap(lambda x: x.strftime(const.DF_DATAFRAME_DAY_FORMAT) if isinstance(x, datetime) else x)
+    data_frame = data_frame.applymap(lambda x: x.strftime(date_format) if isinstance(x, datetime) else x)
 
     if extention in const.SUPPORTED_EXCEL:
         data_frame.to_excel(file_path, index=False)
@@ -171,7 +175,7 @@ and checking if its extension is supported</p>
     if extention not in const.SUPPORTED_EXTENSIONS:
         raise AttributeError(f&#39;The file extension {extention} of file {file_path} is not supported.&#39;)
 
-    data_frame = data_frame.applymap(lambda x: x.strftime(const.DF_DATAFRAME_DAY_FORMAT) if isinstance(x, datetime) else x)
+    data_frame = data_frame.applymap(lambda x: x.strftime(date_format) if isinstance(x, datetime) else x)
 
     if extention in const.SUPPORTED_EXCEL:
         data_frame.to_excel(file_path, index=False)

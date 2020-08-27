@@ -1,3 +1,6 @@
+"""Methods that operate on date logic and arithmetic
+"""
+
 from datetime import datetime, timedelta
 from pandas import DataFrame
 import df_utilities.constants as const

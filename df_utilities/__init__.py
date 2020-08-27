@@ -1,3 +1,6 @@
+"""Utility package that automates valuable data manipulation
+"""
+
 import df_utilities.utility_df as df_utility
 import df_utilities.utility_fileloader as df_fileloader
 import df_utilities.utility_df_datetime as df_datetime
