@@ -6,5 +6,5 @@ Currently deploying on pypi test
 To install the dependency the following command can be used:
 
 ```sh
-pip install -i https://test.pypi.org/simple/ FronTur-Utilities
+pip install -i https://test.pypi.org/simple/ fronTur-utilities
 ```
