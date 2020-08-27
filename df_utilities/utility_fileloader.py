@@ -13,7 +13,7 @@ def load_agenda(file_path: str,
 
     Args:
         file_path (str): Source file path
-        date_format (str, optional): Format used on the dates. Defaults to const.DF_DATAFRAME_DAY_FORMAT.
+        date_format (str, optional): Format used on the dates.
 
     Raises:
         AttributeError: If the extension isn't supported
@@ -53,7 +53,7 @@ def dump_agenda(
     Args:
         file_path (str): Target file path
         data_frame (pandas.DataFrame): Source DataFrame
-        date_format (str, optional): Format used on the dates. Defaults to const.DF_DATAFRAME_DAY_FORMAT.
+        date_format (str, optional): Format used on the dates.
 
     Raises:
         AttributeError: If the file extension is not supported
@@ -63,7 +63,7 @@ def dump_agenda(
     if extention not in const.SUPPORTED_EXTENSIONS:
         raise AttributeError(f'The file extension {extention} of file {file_path} is not supported.')
 
-    data_frame = data_frame.applymap(lambda x: x.strftime(const.DF_DATAFRAME_DAY_FORMAT) if isinstance(x, datetime) else x)
+    data_frame = data_frame.applymap(lambda x: x.strftime(date_format) if isinstance(x, datetime) else x)
 
     if extention in const.SUPPORTED_EXCEL:
         data_frame.to_excel(file_path, index=False)

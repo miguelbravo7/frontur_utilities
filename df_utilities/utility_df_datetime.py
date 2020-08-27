@@ -29,7 +29,7 @@ def parse_workdays(
 
     Args:
         available_work_days (str): A string of individual character workdays
-        dictionary (dict, optional): Map of aliases to the characters. Defaults to const.WEEKDAY.
+        dictionary (dict, optional): Map of aliases to the characters.
 
     Returns:
         list: Integer list of the corresponding weekdays
@@ -98,10 +98,10 @@ def expand_date_intervals(
 
     Args:
         df (pandas.DataFrame): Source DataFrame
-        week_days (str, optional): Name of the column that contains the workday characters. Defaults to const.DF_WEEKDAY_COL_NAME.
-        start_row (str, optional): Name of the column that contains the start date of opertation. Defaults to const.DF_OPERATION_START_COL_NAME.
-        end_row (str, optional): Name of the column that contains the last date of opertation. Defaults to const.DF_OPERATION_END_COL_NAME.
-        day_name (str, optional): Name of the generated column after the process. Defaults to const.DF_DAY_COL_NAME.
+        week_days (str, optional): Name of the column that contains the workday characters.
+        start_row (str, optional): Name of the column that contains the start date of opertation.
+        end_row (str, optional): Name of the column that contains the last date of opertation.
+        day_name (str, optional): Name of the generated column after the process.
 
     Returns:
         list: list of dictionaries

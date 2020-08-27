@@ -1,7 +1,7 @@
 import json
 
 data = {}
-with open('config.json', 'r') as f:
+with open('df_utilities/config.json', 'r') as f:
     data = json.load(f)
 
 locals().update(**data)
