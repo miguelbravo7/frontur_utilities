@@ -1,5 +1,5 @@
 import pandas
-from df_utilities import utility_df, constants as const
+from frontur_utilities import utility_df, constants as const
 from fixtures import df, json_data
 
 

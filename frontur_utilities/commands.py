@@ -2,9 +2,9 @@
 """
 
 import click
-import df_utilities.utility_fileloader as df_fileloader
-import df_utilities.constants as const
-import df_utilities.extract_methods as em
+import frontur_utilities.utility_fileloader as df_fileloader
+import frontur_utilities.constants as const
+import frontur_utilities.extract_methods as em
 
 
 @click.group()

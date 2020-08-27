@@ -27,8 +27,8 @@ setup(
     keywords="TFG ULL ISTAC",
     url="http://example.com/HelloWorld/",   # project home page, if any
     project_urls={
-        "Documentation": "https://github.com/miguelbravo7/df_utilities/docs/df_utilities",
-        "Source Code": "https://github.com/miguelbravo7/df_utilities",
+        "Documentation": "https://github.com/miguelbravo7/frontur_utilities/docs/frontur_utilities",
+        "Source Code": "https://github.com/miguelbravo7/frontur_utilities",
     },
     classifiers=[
         "License :: OSI Approved :: MIT License",
@@ -41,7 +41,7 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "frontur_utilities = df_utilities.commands:cli"
+            "frontur_utilities = frontur_utilities.commands:cli"
         ]
     },
     python_requires='>=3.7'

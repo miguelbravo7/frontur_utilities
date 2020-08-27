@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.8.5" />
-<title>df_utilities.utility_df_datetime API documentation</title>
+<title>frontur_utilities.utility_df_datetime API documentation</title>
 <meta name="description" content="Methods that operate on date logic and arithmetic" />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
@@ -19,7 +19,7 @@
 <main>
 <article id="content">
 <header>
-<h1 class="title">Module <code>df_utilities.utility_df_datetime</code></h1>
+<h1 class="title">Module <code>frontur_utilities.utility_df_datetime</code></h1>
 </header>
 <section id="section-intro">
 <p>Methods that operate on date logic and arithmetic</p>
@@ -32,7 +32,7 @@
 
 from datetime import datetime, timedelta
 from pandas import DataFrame
-import df_utilities.constants as const
+import frontur_utilities.constants as const
 
 
 def conv_to_datetime(day_str_arr: list, day_format: str) -&gt; list:
@@ -157,7 +157,7 @@ def expand_date_intervals(
 <section>
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
-<dt id="df_utilities.utility_df_datetime.conv_to_datetime"><code class="name flex">
+<dt id="frontur_utilities.utility_df_datetime.conv_to_datetime"><code class="name flex">
 <span>def <span class="ident">conv_to_datetime</span></span>(<span>day_str_arr: list, day_format: str) ‑> list</span>
 </code></dt>
 <dd>
@@ -197,7 +197,7 @@ converts the string to ea datetime object</p>
     return dates</code></pre>
 </details>
 </dd>
-<dt id="df_utilities.utility_df_datetime.expand_date_intervals"><code class="name flex">
+<dt id="frontur_utilities.utility_df_datetime.expand_date_intervals"><code class="name flex">
 <span>def <span class="ident">expand_date_intervals</span></span>(<span>df: pandas.core.frame.DataFrame, week_days: str = 'Dia_semana', start_row: str = 'Opera_desde', end_row: str = 'Opera_hasta', day_name: str = 'Day') ‑> list</span>
 </code></dt>
 <dd>
@@ -257,7 +257,7 @@ using a date interval and available weekdays</p>
     return rows_list</code></pre>
 </details>
 </dd>
-<dt id="df_utilities.utility_df_datetime.gen_dates"><code class="name flex">
+<dt id="frontur_utilities.utility_df_datetime.gen_dates"><code class="name flex">
 <span>def <span class="ident">gen_dates</span></span>(<span>dt_first: datetime.datetime, dt_last: datetime.datetime, available_work_days: list) ‑> datetime.datetime</span>
 </code></dt>
 <dd>
@@ -313,7 +313,7 @@ and an array of available week day numbers</p>
     return dates</code></pre>
 </details>
 </dd>
-<dt id="df_utilities.utility_df_datetime.next_date"><code class="name flex">
+<dt id="frontur_utilities.utility_df_datetime.next_date"><code class="name flex">
 <span>def <span class="ident">next_date</span></span>(<span>date: datetime.datetime, day: int) ‑> datetime.datetime</span>
 </code></dt>
 <dd>
@@ -347,7 +347,7 @@ and an array of available week day numbers</p>
     return date + timedelta(days=(day - date.weekday()) % 7)</code></pre>
 </details>
 </dd>
-<dt id="df_utilities.utility_df_datetime.parse_workdays"><code class="name flex">
+<dt id="frontur_utilities.utility_df_datetime.parse_workdays"><code class="name flex">
 <span>def <span class="ident">parse_workdays</span></span>(<span>available_work_days: str, dictionary: dict = {'L': 0, 'M': 1, 'X': 2, 'J': 3, 'V': 4, 'S': 5, 'D': 6}) ‑> list</span>
 </code></dt>
 <dd>
@@ -401,16 +401,16 @@ and an array of available week day numbers</p>
 <ul id="index">
 <li><h3>Super-module</h3>
 <ul>
-<li><code><a title="df_utilities" href="index.html">df_utilities</a></code></li>
+<li><code><a title="frontur_utilities" href="index.html">frontur_utilities</a></code></li>
 </ul>
 </li>
 <li><h3><a href="#header-functions">Functions</a></h3>
 <ul class="">
-<li><code><a title="df_utilities.utility_df_datetime.conv_to_datetime" href="#df_utilities.utility_df_datetime.conv_to_datetime">conv_to_datetime</a></code></li>
-<li><code><a title="df_utilities.utility_df_datetime.expand_date_intervals" href="#df_utilities.utility_df_datetime.expand_date_intervals">expand_date_intervals</a></code></li>
-<li><code><a title="df_utilities.utility_df_datetime.gen_dates" href="#df_utilities.utility_df_datetime.gen_dates">gen_dates</a></code></li>
-<li><code><a title="df_utilities.utility_df_datetime.next_date" href="#df_utilities.utility_df_datetime.next_date">next_date</a></code></li>
-<li><code><a title="df_utilities.utility_df_datetime.parse_workdays" href="#df_utilities.utility_df_datetime.parse_workdays">parse_workdays</a></code></li>
+<li><code><a title="frontur_utilities.utility_df_datetime.conv_to_datetime" href="#frontur_utilities.utility_df_datetime.conv_to_datetime">conv_to_datetime</a></code></li>
+<li><code><a title="frontur_utilities.utility_df_datetime.expand_date_intervals" href="#frontur_utilities.utility_df_datetime.expand_date_intervals">expand_date_intervals</a></code></li>
+<li><code><a title="frontur_utilities.utility_df_datetime.gen_dates" href="#frontur_utilities.utility_df_datetime.gen_dates">gen_dates</a></code></li>
+<li><code><a title="frontur_utilities.utility_df_datetime.next_date" href="#frontur_utilities.utility_df_datetime.next_date">next_date</a></code></li>
+<li><code><a title="frontur_utilities.utility_df_datetime.parse_workdays" href="#frontur_utilities.utility_df_datetime.parse_workdays">parse_workdays</a></code></li>
 </ul>
 </li>
 </ul>

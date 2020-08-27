@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.8.5" />
-<title>df_utilities.extract_methods API documentation</title>
+<title>frontur_utilities.extract_methods API documentation</title>
 <meta name="description" content="Agregate methods that reflect the general use of
 the treatment of data on the aplication" />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
@@ -20,7 +20,7 @@ the treatment of data on the aplication" />
 <main>
 <article id="content">
 <header>
-<h1 class="title">Module <code>df_utilities.extract_methods</code></h1>
+<h1 class="title">Module <code>frontur_utilities.extract_methods</code></h1>
 </header>
 <section id="section-intro">
 <p>Agregate methods that reflect the general use of
@@ -36,11 +36,11 @@ the treatment of data on the aplication
 import pandas
 import re
 import json
-import df_utilities.constants as const
-import df_utilities.utility_fileloader as df_fileloader
-import df_utilities.utility_df_datetime as df_datetime
-import df_utilities.utility_functions as utility
-import df_utilities.utility_df as df_utility
+import frontur_utilities.constants as const
+import frontur_utilities.utility_fileloader as df_fileloader
+import frontur_utilities.utility_df_datetime as df_datetime
+import frontur_utilities.utility_functions as utility
+import frontur_utilities.utility_df as df_utility
 
 
 def select_airport(
@@ -144,7 +144,7 @@ def select_days(df: pandas.DataFrame, file_path: str) -&gt; pandas.DataFrame:
 <section>
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
-<dt id="df_utilities.extract_methods.add_plane_data"><code class="name flex">
+<dt id="frontur_utilities.extract_methods.add_plane_data"><code class="name flex">
 <span>def <span class="ident">add_plane_data</span></span>(<span>data_frame: pandas.core.frame.DataFrame, file_path: str, target_col: str = 'Aeronave') ‑> pandas.core.frame.DataFrame</span>
 </code></dt>
 <dd>
@@ -196,7 +196,7 @@ def select_days(df: pandas.DataFrame, file_path: str) -&gt; pandas.DataFrame:
     return data_frame.query(&#39;_merge == &#34;both&#34;&#39;).drop(columns=[&#39;_merge&#39;])</code></pre>
 </details>
 </dd>
-<dt id="df_utilities.extract_methods.format_dates"><code class="name flex">
+<dt id="frontur_utilities.extract_methods.format_dates"><code class="name flex">
 <span>def <span class="ident">format_dates</span></span>(<span>data_frame: pandas.core.frame.DataFrame, target_col: str = 'Dia_semana') ‑> pandas.core.frame.DataFrame</span>
 </code></dt>
 <dd>
@@ -235,7 +235,7 @@ def select_days(df: pandas.DataFrame, file_path: str) -&gt; pandas.DataFrame:
     return pandas.pandas.DataFrame(utility.flatten(dict_lists))</code></pre>
 </details>
 </dd>
-<dt id="df_utilities.extract_methods.select_airport"><code class="name flex">
+<dt id="frontur_utilities.extract_methods.select_airport"><code class="name flex">
 <span>def <span class="ident">select_airport</span></span>(<span>data_frame: pandas.core.frame.DataFrame, airport: str, target_col: str = 'Origen') ‑> pandas.core.frame.DataFrame</span>
 </code></dt>
 <dd>
@@ -280,7 +280,7 @@ def select_days(df: pandas.DataFrame, file_path: str) -&gt; pandas.DataFrame:
     return data_frame</code></pre>
 </details>
 </dd>
-<dt id="df_utilities.extract_methods.select_days"><code class="name flex">
+<dt id="frontur_utilities.extract_methods.select_days"><code class="name flex">
 <span>def <span class="ident">select_days</span></span>(<span>df: pandas.core.frame.DataFrame, file_path: str) ‑> pandas.core.frame.DataFrame</span>
 </code></dt>
 <dd>
@@ -315,7 +315,7 @@ def select_days(df: pandas.DataFrame, file_path: str) -&gt; pandas.DataFrame:
         return df_utility.select_rows(df, json.load(jfile))</code></pre>
 </details>
 </dd>
-<dt id="df_utilities.extract_methods.substitute_values"><code class="name flex">
+<dt id="frontur_utilities.extract_methods.substitute_values"><code class="name flex">
 <span>def <span class="ident">substitute_values</span></span>(<span>df: pandas.core.frame.DataFrame, file_path: str)</span>
 </code></dt>
 <dd>
@@ -355,16 +355,16 @@ def select_days(df: pandas.DataFrame, file_path: str) -&gt; pandas.DataFrame:
 <ul id="index">
 <li><h3>Super-module</h3>
 <ul>
-<li><code><a title="df_utilities" href="index.html">df_utilities</a></code></li>
+<li><code><a title="frontur_utilities" href="index.html">frontur_utilities</a></code></li>
 </ul>
 </li>
 <li><h3><a href="#header-functions">Functions</a></h3>
 <ul class="">
-<li><code><a title="df_utilities.extract_methods.add_plane_data" href="#df_utilities.extract_methods.add_plane_data">add_plane_data</a></code></li>
-<li><code><a title="df_utilities.extract_methods.format_dates" href="#df_utilities.extract_methods.format_dates">format_dates</a></code></li>
-<li><code><a title="df_utilities.extract_methods.select_airport" href="#df_utilities.extract_methods.select_airport">select_airport</a></code></li>
-<li><code><a title="df_utilities.extract_methods.select_days" href="#df_utilities.extract_methods.select_days">select_days</a></code></li>
-<li><code><a title="df_utilities.extract_methods.substitute_values" href="#df_utilities.extract_methods.substitute_values">substitute_values</a></code></li>
+<li><code><a title="frontur_utilities.extract_methods.add_plane_data" href="#frontur_utilities.extract_methods.add_plane_data">add_plane_data</a></code></li>
+<li><code><a title="frontur_utilities.extract_methods.format_dates" href="#frontur_utilities.extract_methods.format_dates">format_dates</a></code></li>
+<li><code><a title="frontur_utilities.extract_methods.select_airport" href="#frontur_utilities.extract_methods.select_airport">select_airport</a></code></li>
+<li><code><a title="frontur_utilities.extract_methods.select_days" href="#frontur_utilities.extract_methods.select_days">select_days</a></code></li>
+<li><code><a title="frontur_utilities.extract_methods.substitute_values" href="#frontur_utilities.extract_methods.substitute_values">substitute_values</a></code></li>
 </ul>
 </li>
 </ul>

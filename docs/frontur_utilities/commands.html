@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.8.5" />
-<title>df_utilities API documentation</title>
-<meta name="description" content="Utility package that automates valuable data manipulation" />
+<title>frontur_utilities.commands API documentation</title>
+<meta name="description" content="Collection of methods that are used as command line scripts" />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
 <link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css" crossorigin>
@@ -19,66 +19,79 @@
 <main>
 <article id="content">
 <header>
-<h1 class="title">Package <code>df_utilities</code></h1>
+<h1 class="title">Module <code>frontur_utilities.commands</code></h1>
 </header>
 <section id="section-intro">
-<p>Utility package that automates valuable data manipulation</p>
+<p>Collection of methods that are used as command line scripts</p>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">&#34;&#34;&#34;Utility package that automates valuable data manipulation
+<pre><code class="python">&#34;&#34;&#34;Collection of methods that are used as command line scripts
 &#34;&#34;&#34;
 
-import df_utilities.utility_df as df_utility
-import df_utilities.utility_fileloader as df_fileloader
-import df_utilities.utility_df_datetime as df_datetime
-import df_utilities.utility_functions as utility
-import df_utilities.constants as const
-import df_utilities.commands
+import click
+import frontur_utilities.utility_fileloader as df_fileloader
+import frontur_utilities.constants as const
+import frontur_utilities.extract_methods as em
 
-__all__ = [&#39;constants&#39;,
-           &#39;utility_df&#39;,
-           &#39;utility_fileloader&#39;,
-           &#39;utility_df_datetime&#39;,
-           &#39;utility_functions&#39;
-           ]</code></pre>
+
+@click.group()
+def cli():
+    &#34;&#34;&#34;Method that can be called my other modules to use the commands on this file&#34;&#34;&#34;
+    pass
+
+
+@cli.command(&#39;cli&#39;, short_help=&#39;command line interface&#39;, context_settings={&#34;ignore_unknown_options&#34;: True})
+@click.option(&#39;-i&#39;, &#39;--infile&#39;, prompt=&#39;FronTur file&#39;, type=click.Path(exists=True), help=&#39;Path to file with FronTur flights.&#39;)
+@click.option(&#39;-o&#39;, &#39;--outfile&#39;, type=click.Path(), help=&#39;Output path with parsed FronTur flights.&#39;)
+@click.option(&#39;-d&#39;, &#39;--days&#39;, prompt=&#39;Days json file&#39;, type=click.Path(exists=True), help=&#39;Path to json file with correct parameters.&#39;)
+@click.option(&#39;-a&#39;, &#39;--airport&#39;, prompt=&#39;Select airport&#39;, type=click.STRING, help=&#39;Target airport string identifier code.&#39;)
+@click.option(&#39;-s&#39;, &#39;--substitutions&#39;, default=&#39;.&#39;, type=click.Path(exists=True), help=&#39;Optional json file with value conversions.&#39;)
+def command(infile: str, days: str, airport: str, substitutions: str, outfile: str):
+    &#34;&#34;&#34;
+    ·______   ______     ______     __   __     ______   __  __     ______   
+    /\  ___\ /\  == \   /\  __ \   /\ &#34;-.\ \   /\__  _\ /\ \/\ \   /\  == \  
+    \ \  __\ \ \  __&lt;   \ \ \/\ \  \ \ \-.  \  \/_/\ \/ \ \ \_\ \  \ \  __&lt;  
+    ·\ \_\    \ \_\ \_\  \ \_____\  \ \_\\\\&#34;\_\    \ \_\  \ \_____\  \ \_\ \_\\
+    ··\/_/     \/_/ /_/   \/_____/   \/_/ \/_/     \/_/   \/_____/   \/_/ /_/
+
+
+    Program that processes various information from files
+    giving a dataframe with concrete information about flights.
+    \f
+    Args:
+        infile (str): Path to file with FronTur flights
+        days (str): Path to json file with correct parameters of the assigned interview days
+        airport (str): Target airport string identifier code
+        substitutions (str): Optional json file with value conversions
+        outfile (str): Output path with parsed FronTur flights
+    &#34;&#34;&#34;
+    data_frame = df_fileloader.load_agenda(infile)
+    data_frame = em.select_airport(data_frame, airport)
+
+    if substitutions != &#39;.&#39;:
+        em.substitute_values(data_frame, substitutions)
+
+    data_frame = em.add_plane_data(data_frame, const.PLANES_DATA_FILE_PATH)
+    data_frame = em.format_dates(data_frame)
+    data_frame = em.select_days(data_frame, days)
+
+    print(
+        data_frame,
+        # &#39;\n-------------\n&#39;,
+        # data_frame.loc[lambda frame: frame[&#39;Destino&#39;] == &#39;BILBAO&#39;],
+        &#39;\n-------------\n&#39;,
+        data_frame.groupby([&#39;Destino&#39;]).sum(),
+        &#39;\n-------------\n&#39;,
+        data_frame.groupby([&#39;Pais&#39;]).sum()
+    )
+
+    if outfile:
+        df_fileloader.dump_agenda(outfile, data_frame)</code></pre>
 </details>
 </section>
 <section>
-<h2 class="section-title" id="header-submodules">Sub-modules</h2>
-<dl>
-<dt><code class="name"><a title="df_utilities.commands" href="commands.html">df_utilities.commands</a></code></dt>
-<dd>
-<div class="desc"><p>Collection of methods that are used as command line scripts</p></div>
-</dd>
-<dt><code class="name"><a title="df_utilities.constants" href="constants.html">df_utilities.constants</a></code></dt>
-<dd>
-<div class="desc"><p>Loads the variables the default values that are going to be used
-by the package modules</p></div>
-</dd>
-<dt><code class="name"><a title="df_utilities.extract_methods" href="extract_methods.html">df_utilities.extract_methods</a></code></dt>
-<dd>
-<div class="desc"><p>Agregate methods that reflect the general use of
-the treatment of data on the aplication</p></div>
-</dd>
-<dt><code class="name"><a title="df_utilities.utility_df" href="utility_df.html">df_utilities.utility_df</a></code></dt>
-<dd>
-<div class="desc"><p>Methods that deal with data manipulation and selection</p></div>
-</dd>
-<dt><code class="name"><a title="df_utilities.utility_df_datetime" href="utility_df_datetime.html">df_utilities.utility_df_datetime</a></code></dt>
-<dd>
-<div class="desc"><p>Methods that operate on date logic and arithmetic</p></div>
-</dd>
-<dt><code class="name"><a title="df_utilities.utility_fileloader" href="utility_fileloader.html">df_utilities.utility_fileloader</a></code></dt>
-<dd>
-<div class="desc"><p>Utility to load and save dataframes easily</p></div>
-</dd>
-<dt><code class="name"><a title="df_utilities.utility_functions" href="utility_functions.html">df_utilities.utility_functions</a></code></dt>
-<dd>
-<div class="desc"><p>General purpose functions</p></div>
-</dd>
-</dl>
 </section>
 <section>
 </section>
@@ -93,15 +106,9 @@ the treatment of data on the aplication</p></div>
 <ul></ul>
 </div>
 <ul id="index">
-<li><h3><a href="#header-submodules">Sub-modules</a></h3>
+<li><h3>Super-module</h3>
 <ul>
-<li><code><a title="df_utilities.commands" href="commands.html">df_utilities.commands</a></code></li>
-<li><code><a title="df_utilities.constants" href="constants.html">df_utilities.constants</a></code></li>
-<li><code><a title="df_utilities.extract_methods" href="extract_methods.html">df_utilities.extract_methods</a></code></li>
-<li><code><a title="df_utilities.utility_df" href="utility_df.html">df_utilities.utility_df</a></code></li>
-<li><code><a title="df_utilities.utility_df_datetime" href="utility_df_datetime.html">df_utilities.utility_df_datetime</a></code></li>
-<li><code><a title="df_utilities.utility_fileloader" href="utility_fileloader.html">df_utilities.utility_fileloader</a></code></li>
-<li><code><a title="df_utilities.utility_functions" href="utility_functions.html">df_utilities.utility_functions</a></code></li>
+<li><code><a title="frontur_utilities" href="index.html">frontur_utilities</a></code></li>
 </ul>
 </li>
 </ul>

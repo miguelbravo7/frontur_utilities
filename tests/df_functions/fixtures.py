@@ -1,6 +1,6 @@
 import pandas
 import pytest
-from df_utilities import constants as const
+from frontur_utilities import constants as const
 
 column_name = 'col1'
 reference_column_name = 'col2'

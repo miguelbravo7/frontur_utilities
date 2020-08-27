@@ -7,11 +7,11 @@ on:
   push:
     branches: [master]
     paths:
-      - 'df_utilities/**.py'
+      - 'frontur_utilities/**.py'
   pull_request:
     branches: [master]
     paths:
-      - 'df_utilities/**.py'
+      - 'frontur_utilities/**.py'
 
 jobs:
   build:

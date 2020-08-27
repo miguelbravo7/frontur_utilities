@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.8.5" />
-<title>df_utilities.utility_fileloader API documentation</title>
+<title>frontur_utilities.utility_fileloader API documentation</title>
 <meta name="description" content="Utility to load and save dataframes easily" />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
@@ -19,7 +19,7 @@
 <main>
 <article id="content">
 <header>
-<h1 class="title">Module <code>df_utilities.utility_fileloader</code></h1>
+<h1 class="title">Module <code>frontur_utilities.utility_fileloader</code></h1>
 </header>
 <section id="section-intro">
 <p>Utility to load and save dataframes easily</p>
@@ -33,8 +33,8 @@
 import pandas
 from chardet.universaldetector import UniversalDetector
 from datetime import datetime
-import df_utilities.constants as const
-import df_utilities.utility_functions as uf
+import frontur_utilities.constants as const
+import frontur_utilities.utility_functions as uf
 
 
 def load_agenda(file_path: str,
@@ -130,7 +130,7 @@ def guess_encoding(file_bytes: bytes) -&gt; str:
 <section>
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
-<dt id="df_utilities.utility_fileloader.dump_agenda"><code class="name flex">
+<dt id="frontur_utilities.utility_fileloader.dump_agenda"><code class="name flex">
 <span>def <span class="ident">dump_agenda</span></span>(<span>file_path: str, data_frame: pandas.core.frame.DataFrame, date_format: str = '%d/%m/%Y')</span>
 </code></dt>
 <dd>
@@ -183,7 +183,7 @@ and checking if its extension is supported</p>
         data_frame.to_csv(file_path, date_format=date_format, index=False, encoding=&#39;utf-16&#39;)</code></pre>
 </details>
 </dd>
-<dt id="df_utilities.utility_fileloader.guess_encoding"><code class="name flex">
+<dt id="frontur_utilities.utility_fileloader.guess_encoding"><code class="name flex">
 <span>def <span class="ident">guess_encoding</span></span>(<span>file_bytes: bytes) ‑> str</span>
 </code></dt>
 <dd>
@@ -224,7 +224,7 @@ calling its feed method repeatedly with each block of text</p>
     return detector.result[&#39;encoding&#39;]</code></pre>
 </details>
 </dd>
-<dt id="df_utilities.utility_fileloader.load_agenda"><code class="name flex">
+<dt id="frontur_utilities.utility_fileloader.load_agenda"><code class="name flex">
 <span>def <span class="ident">load_agenda</span></span>(<span>file_path: str, date_format: str = '%d/%m/%Y') ‑> pandas.core.frame.DataFrame</span>
 </code></dt>
 <dd>
@@ -301,14 +301,14 @@ checking if the extension is supported</p>
 <ul id="index">
 <li><h3>Super-module</h3>
 <ul>
-<li><code><a title="df_utilities" href="index.html">df_utilities</a></code></li>
+<li><code><a title="frontur_utilities" href="index.html">frontur_utilities</a></code></li>
 </ul>
 </li>
 <li><h3><a href="#header-functions">Functions</a></h3>
 <ul class="">
-<li><code><a title="df_utilities.utility_fileloader.dump_agenda" href="#df_utilities.utility_fileloader.dump_agenda">dump_agenda</a></code></li>
-<li><code><a title="df_utilities.utility_fileloader.guess_encoding" href="#df_utilities.utility_fileloader.guess_encoding">guess_encoding</a></code></li>
-<li><code><a title="df_utilities.utility_fileloader.load_agenda" href="#df_utilities.utility_fileloader.load_agenda">load_agenda</a></code></li>
+<li><code><a title="frontur_utilities.utility_fileloader.dump_agenda" href="#frontur_utilities.utility_fileloader.dump_agenda">dump_agenda</a></code></li>
+<li><code><a title="frontur_utilities.utility_fileloader.guess_encoding" href="#frontur_utilities.utility_fileloader.guess_encoding">guess_encoding</a></code></li>
+<li><code><a title="frontur_utilities.utility_fileloader.load_agenda" href="#frontur_utilities.utility_fileloader.load_agenda">load_agenda</a></code></li>
 </ul>
 </li>
 </ul>

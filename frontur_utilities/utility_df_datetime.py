@@ -3,7 +3,7 @@
 
 from datetime import datetime, timedelta
 from pandas import DataFrame
-import df_utilities.constants as const
+import frontur_utilities.constants as const
 
 
 def conv_to_datetime(day_str_arr: list, day_format: str) -> list:

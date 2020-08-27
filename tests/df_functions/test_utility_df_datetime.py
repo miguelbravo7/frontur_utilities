@@ -1,7 +1,7 @@
 import pandas
 import pytest
 from datetime import datetime
-from df_utilities import df_datetime, constants as const
+from frontur_utilities import df_datetime, constants as const
 
 
 def test_conv_to_datetime():

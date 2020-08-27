@@ -5,11 +5,11 @@ the treatment of data on the aplication
 import pandas
 import re
 import json
-import df_utilities.constants as const
-import df_utilities.utility_fileloader as df_fileloader
-import df_utilities.utility_df_datetime as df_datetime
-import df_utilities.utility_functions as utility
-import df_utilities.utility_df as df_utility
+import frontur_utilities.constants as const
+import frontur_utilities.utility_fileloader as df_fileloader
+import frontur_utilities.utility_df_datetime as df_datetime
+import frontur_utilities.utility_functions as utility
+import frontur_utilities.utility_df as df_utility
 
 
 def select_airport(

@@ -1,4 +1,4 @@
-from df_utilities import utility_functions
+from frontur_utilities import utility_functions
 
 
 def test_flatten():

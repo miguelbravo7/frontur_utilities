@@ -4,8 +4,8 @@
 import pandas
 from chardet.universaldetector import UniversalDetector
 from datetime import datetime
-import df_utilities.constants as const
-import df_utilities.utility_functions as uf
+import frontur_utilities.constants as const
+import frontur_utilities.utility_functions as uf
 
 
 def load_agenda(file_path: str,
