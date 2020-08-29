@@ -66,6 +66,6 @@ def command(infile: str, days: str, airport: str, substitutions: str, outfile: s
 def edit_conf(editor: str):
     abs_path = os.path.dirname(os.path.realpath(__file__))
     if editor == '':
-        os.startfile(abs_path + '/config.json')
+        os.startfile(abs_path + '/data/config.json')
     else:
-        os.system(editor + ' ' + abs_path + '/config.json')
+        os.system(editor + ' ' + abs_path + '/data/config.json')
