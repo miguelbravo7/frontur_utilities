@@ -3,9 +3,11 @@ by the package modules
 """
 
 import json
+import os
 
 data = {}
-with open('frontur_utilities/config.json', 'r') as f:
+abs_path = os.path.dirname(os.path.realpath(__file__))
+with open(abs_path + '/config.json', 'r') as f:
     data = json.load(f)
 
 locals().update(**data)
