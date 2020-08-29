@@ -2,6 +2,7 @@
 """
 
 import click
+import os
 import frontur_utilities.utility_fileloader as df_fileloader
 import frontur_utilities.constants as const
 import frontur_utilities.extract_methods as em
@@ -50,8 +51,6 @@ def command(infile: str, days: str, airport: str, substitutions: str, outfile: s
 
     print(
         data_frame,
-        # '\n-------------\n',
-        # data_frame.loc[lambda frame: frame['Destino'] == 'BILBAO'],
         '\n-------------\n',
         data_frame.groupby(['Destino']).sum(),
         '\n-------------\n',
@@ -60,3 +59,13 @@ def command(infile: str, days: str, airport: str, substitutions: str, outfile: s
 
     if outfile:
         df_fileloader.dump_agenda(outfile, data_frame)
+
+
+@cli.command('edit_conf', short_help='cofiguration file edition shortcut')
+@click.option('-e', '--editor', type=click.STRING, default='', help='Alternative file editor.')
+def edit_conf(editor: str):
+    abs_path = os.path.dirname(os.path.realpath(__file__))
+    if editor == '':
+        os.startfile(abs_path + '/config.json')
+    else:
+        os.system(editor + ' ' + abs_path + '/config.json')

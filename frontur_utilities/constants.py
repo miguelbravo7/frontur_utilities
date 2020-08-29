@@ -15,7 +15,7 @@ locals().update(**data)
 # SUPPORTED_EXCEL = ['xls', 'xlsx', 'xlsm', 'xlsb',  'odf']
 # SUPPORTED_CSV = ['csv']
 # SUPPORTED_ALT = ['txt']
-# SUPPORTED_EXTENSIONS = SUPPORTED_CSV + SUPPORTED_EXCEL
+SUPPORTED_EXTENSIONS = SUPPORTED_CSV + SUPPORTED_EXCEL
 
 # DF_DATAFRAME_DAY_FORMAT = "%d/%m/%Y"
 
