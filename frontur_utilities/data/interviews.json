@@ -1,0 +1,21 @@
+{
+    "arrange": "Arrays",
+    "sample_as_percentage": false,
+    "passengers_by_stratum": [
+        60,
+        1000,
+        10000,
+        25000,
+        40000,
+        60000
+    ],
+    "minimum_sample": [
+        20,
+        80,
+        200,
+        400,
+        500,
+        600,
+        700
+    ]
+}
