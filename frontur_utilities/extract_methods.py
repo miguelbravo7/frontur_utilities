@@ -75,9 +75,9 @@ def add_plane_data(
 
 
 def format_dates(
-    data_frame: pandas.DataFrame,
-    target_col: str = const.DF_WEEKDAY_COL_NAME
-    ) -> pandas.DataFrame:
+        data_frame: pandas.DataFrame,
+        target_col: str = const.DF_WEEKDAY_COL_NAME
+        ) -> pandas.DataFrame:
     """Removes all whitespaces from the deafult date column
 
     Args:

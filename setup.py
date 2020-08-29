@@ -4,10 +4,7 @@ with open("README.md", 'r') as f:
     long_description = f.read()
 
 with open("requirements.txt", 'r') as f:
-    import re
-    requirements = list(map(lambda string: re.sub('==.*', '', string), f.read().splitlines()))
-
-print(requirements)
+    requirements = f.read().splitlines()
 
 setup(
     name="fronTur_utilities",
@@ -16,7 +13,7 @@ setup(
     description="Trabajo de fin de grado",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    version="0.0.6",
+    version="0.0.9",
     packages=find_namespace_packages(),
     include_package_data=True,
 
@@ -25,7 +22,7 @@ setup(
     install_requires=['docutils'] + requirements,
 
     keywords="TFG ULL ISTAC",
-    url="http://example.com/HelloWorld/",   # project home page, if any
+    url="http://example.com/HelloWorld/",
     project_urls={
         "Documentation": "https://github.com/miguelbravo7/frontur_utilities/docs/frontur_utilities",
         "Source Code": "https://github.com/miguelbravo7/frontur_utilities",
