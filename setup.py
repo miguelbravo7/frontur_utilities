@@ -13,7 +13,7 @@ setup(
     description="Trabajo de fin de grado",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    version="0.0.11",
+    version="0.1.1",
     packages=find_namespace_packages(),
     include_package_data=True,
 
