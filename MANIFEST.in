@@ -6,3 +6,6 @@ include LICENSE
 
 # Include the data files
 recursive-include data *
+
+# Include the config file
+include frontur_utilities/config.json
