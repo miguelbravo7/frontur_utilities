@@ -6,6 +6,7 @@ column_name = 'col1'
 reference_column_name = 'col2'
 replaced_string = 'replaced string'
 
+
 @pytest.fixture
 def df():
     df = pandas.DataFrame({
@@ -17,6 +18,7 @@ def df():
 
     df[const.DF_DAY_COL_NAME] = pandas.to_datetime(df[const.DF_DAY_COL_NAME], format=const.DF_DATAFRAME_DAY_FORMAT)
     return df
+
 
 @pytest.fixture
 def json_data():

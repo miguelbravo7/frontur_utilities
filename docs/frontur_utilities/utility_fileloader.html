@@ -74,7 +74,7 @@ def load_agenda(file_path: str,
     return data_frame
 
 
-def dump_agenda(
+def save_agenda(
         file_path: str,
         data_frame: pandas.DataFrame,
         date_format: str = const.DF_DATAFRAME_DAY_FORMAT
@@ -130,8 +130,8 @@ def guess_encoding(file_bytes: bytes) -&gt; str:
 <section>
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
-<dt id="frontur_utilities.utility_fileloader.dump_agenda"><code class="name flex">
-<span>def <span class="ident">dump_agenda</span></span>(<span>file_path: str, data_frame: pandas.core.frame.DataFrame, date_format: str = '%d/%m/%Y')</span>
+<dt id="frontur_utilities.utility_fileloader.save_agenda"><code class="name flex">
+<span>def <span class="ident">save_agenda</span></span>(<span>file_path: str, data_frame: pandas.core.frame.DataFrame, date_format: str = '%d/%m/%Y')</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Loads a pandas DataFrame object given a file
@@ -154,7 +154,7 @@ and checking if its extension is supported</p>
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def dump_agenda(
+<pre><code class="python">def save_agenda(
         file_path: str,
         data_frame: pandas.DataFrame,
         date_format: str = const.DF_DATAFRAME_DAY_FORMAT
@@ -306,7 +306,7 @@ checking if the extension is supported</p>
 </li>
 <li><h3><a href="#header-functions">Functions</a></h3>
 <ul class="">
-<li><code><a title="frontur_utilities.utility_fileloader.dump_agenda" href="#frontur_utilities.utility_fileloader.dump_agenda">dump_agenda</a></code></li>
+<li><code><a title="frontur_utilities.utility_fileloader.save_agenda" href="#frontur_utilities.utility_fileloader.save_agenda">save_agenda</a></code></li>
 <li><code><a title="frontur_utilities.utility_fileloader.guess_encoding" href="#frontur_utilities.utility_fileloader.guess_encoding">guess_encoding</a></code></li>
 <li><code><a title="frontur_utilities.utility_fileloader.load_agenda" href="#frontur_utilities.utility_fileloader.load_agenda">load_agenda</a></code></li>
 </ul>

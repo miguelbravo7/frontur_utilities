@@ -8,7 +8,8 @@ import frontur_utilities.constants as const
 import frontur_utilities.utility_functions as uf
 
 
-def load_agenda(file_path: str,
+def load_agenda(
+        file_path: str,
         date_format: str = const.DF_DATAFRAME_DAY_FORMAT
         ) -> pandas.DataFrame:
     """Loads a pandas Dataframe given a file
@@ -45,7 +46,7 @@ def load_agenda(file_path: str,
     return data_frame
 
 
-def dump_agenda(
+def save_agenda(
         file_path: str,
         data_frame: pandas.DataFrame,
         date_format: str = const.DF_DATAFRAME_DAY_FORMAT

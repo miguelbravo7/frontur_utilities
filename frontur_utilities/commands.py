@@ -60,7 +60,7 @@ def command(infile: str, airport: str, days: str, planes: str, substitutions: st
     )
 
     if outfile:
-        df_fileloader.dump_agenda(outfile, data_frame)
+        df_fileloader.save_agenda(outfile, data_frame)
 
 
 @cli.command('edit_conf', short_help='cofiguration file edition shortcut')

@@ -13,6 +13,7 @@ def test_conv_to_datetime():
 
     assert expected == actual
 
+
 @pytest.mark.parametrize('expected, value', [
     ([0], 'L'),
     ([1], 'M'),
@@ -39,6 +40,7 @@ def test_next_date():
     assert datetime.strptime("27/03/2020", const.DF_DATAFRAME_DAY_FORMAT) == df_datetime.next_date(monday, 4)
     assert datetime.strptime("28/03/2020", const.DF_DATAFRAME_DAY_FORMAT) == df_datetime.next_date(monday, 5)
     assert datetime.strptime("29/03/2020", const.DF_DATAFRAME_DAY_FORMAT) == df_datetime.next_date(monday, 6)
+
 
 @pytest.mark.parametrize('first_date, last_date, expected_dates, workdays', [
     ("23/03/2020", "30/03/2020", [
