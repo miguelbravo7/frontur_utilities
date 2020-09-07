@@ -25,17 +25,17 @@ def load_agenda(
     Returns:
         pandas.DataFrame: Loaded DataFrame
     """
-    extention = file_path.split('.')[-1]
+    extension = file_path.split('.')[-1]
 
-    if extention not in const.SUPPORTED_EXTENSIONS:
-        raise AttributeError(f'The file extention {extention} of file {file_path} is not supported.')
+    if extension not in const.SUPPORTED_EXTENSIONS:
+        raise AttributeError(f'The file extention {extension} of file {file_path} is not supported.')
 
     def date_parser(x): pandas.datetime.strptime(x, date_format)
 
     data_frame = None
-    if extention in const.SUPPORTED_EXCEL:
+    if extension in const.SUPPORTED_EXCEL:
         data_frame = pandas.read_excel(file_path, date_parser=date_parser)
-    elif extention in const.SUPPORTED_CSV:
+    elif extension in const.SUPPORTED_CSV:
         try:
             data_frame = pandas.read_csv(file_path, date_parser=date_parser)
         except UnicodeDecodeError:
