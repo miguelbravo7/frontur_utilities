@@ -6,11 +6,13 @@ import frontur_utilities.utility_fileloader as df_fileloader
 import frontur_utilities.utility_df_datetime as df_datetime
 import frontur_utilities.utility_functions as utility
 import frontur_utilities.constants as const
+from frontur_utilities.solver_df import df_solver
 import frontur_utilities.commands
 
 __all__ = ['constants',
            'utility_df',
            'utility_fileloader',
            'utility_df_datetime',
-           'utility_functions'
+           'utility_functions',
+           'df_solver'
            ]
