@@ -76,8 +76,7 @@ def solver(infile: str, outfile: str):
     ··\/_/     \/_/ /_/   \/_____/   \/_/ \/_/     \/_/   \/_____/   \/_/ /_/
 
 
-    Program that processes various information from a file
-    with concrete information about flights of an airport.
+    Program that selects the optimum amount of flights of an airport to interview.
     \f
     Args:
         infile (str): Path to file with FronTur flights
