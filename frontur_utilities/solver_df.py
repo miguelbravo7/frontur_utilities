@@ -66,6 +66,7 @@ def df_solver(data_frame, parameters={}, no_groups=False):
         print(data_frame.loc[selected_entries][[
             const.DF_DAY_COL_NAME, const.DF_EMBARK_HOUR, const.DF_SEATS, *['Encuestador ' + str(k) for k in pollsters]
             ]].sort_values([const.DF_DAY_COL_NAME, const.DF_EMBARK_HOUR], ascending=[True, True]).to_string())
+        data_frame = data_frame.loc[selected_entries]
     else:
         print('Optimal solution not found on time')
 
